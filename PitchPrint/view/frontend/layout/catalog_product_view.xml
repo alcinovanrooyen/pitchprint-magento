@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>        
+        <referenceContainer name="product.info.addtocart">
+            <block 
+               class="PitchPrintInc\PitchPrint\Block\Product\View\Display" 
+               name="pitchprint.buttons" 
+               after="-" 
+               as="PitchPrintButtons" 
+               template="PitchPrintInc_PitchPrint::product/view/addtocart.phtml"
+           />
+        </referenceContainer>
+        <referenceContainer name="product.info.addtocart.additional">
+            <block 
+               class="PitchPrintInc\PitchPrint\Block\Product\View\Display" 
+               name="pitchprint.buttons.additional" 
+               after="-" 
+               as="PitchPrintButtonsAdditional" 
+               template="PitchPrintInc_PitchPrint::product/view/addtocart.phtml"
+           />
+        </referenceContainer> 
+    </body>
+</page>
