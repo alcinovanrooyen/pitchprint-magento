@@ -100,10 +100,12 @@ class PitchPrintDesigns extends AbstractModifier
 		$tableName 		= $this->_resource->getTableName(\PitchPrintInc\PitchPrint\Config\Constants::TABLE_PRODUCT_DESIGN);
 		$product_id 	= $this->locator->getProduct()->getId();
 		
-		$design_id		= $this->_db->fetchAll( "SELECT `design_id` FROM $tableName WHERE `product_id` = $product_id" );
+		if ($product_id) {
+			$design_id		= $this->_db->fetchAll( "SELECT `design_id` FROM $tableName WHERE `product_id` = $product_id" );
 
-		if ( count($design_id) ) {
-			return $design_id[0]['design_id'];
+			if ( count($design_id) ) {
+				return $design_id[0]['design_id'];
+			}
 		}
 		return 0;
 	}
