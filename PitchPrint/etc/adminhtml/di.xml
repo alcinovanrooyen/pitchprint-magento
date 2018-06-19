@@ -11,4 +11,6 @@
     </argument>
   </arguments>
 </virtualType>
+
+<preference for="Magento\Sales\Block\Adminhtml\Order\View\Items\Renderer\DefaultRenderer" type="PitchPrintInc\PitchPrint\Block\Adminhtml\Order\View\Items\Renderer\PitchPrintRenderer" />
 </config>
