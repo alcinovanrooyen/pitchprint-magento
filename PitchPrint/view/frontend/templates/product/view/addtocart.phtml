@@ -6,9 +6,10 @@ $apiKey 	= $block->getApiKey();
 
 <?php if ( $designId && $designId != 'none' && $apiKey ) : ?>
 
+	<input type="hidden" name="_pitchprint"/>
+	
 	<script defer="true" src="https://pitchprint.io/rsc/js/client.js"></script>
 
-	PitchPrint will integrate here.. 
 	<div id="pp_main_btn_sec"></div>
 
 	<script>
