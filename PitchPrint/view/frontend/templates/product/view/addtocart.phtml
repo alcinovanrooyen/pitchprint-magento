@@ -1,0 +1,56 @@
+<?php
+$designId 	= $block->getDesignId();
+$apiKey 	= $block->getApiKey();
+
+?>
+
+<?php if ( $designId && $designId != 'none' && $apiKey ) : ?>
+
+	<input type="hidden" name="_pitchprint"/>
+	
+	<script defer="true" src="https://pitchprint.io/rsc/js/client.js"></script>
+
+	<div id="pp_main_btn_sec"></div>
+
+	<script>
+
+		(function( _doc, window, require ) {
+
+			require(['jquery', 'domReady!'], function () 
+			{
+				if (typeof PitchPrintClient === 'undefined') return;
+
+				window.ppclient = new PitchPrintClient({
+					uploadUrl: 'not-sure-which-root-you-want-here-yet__alcino',
+					userId: '1',
+					langCode: 'en',
+					enableUpload: 0,
+					designId: '<?=$designId?>',
+					previews: '',
+					mode: 'new',
+					createButtons: true,
+					projectId: '',
+					pluginRoot: 'not-sure-which-root-you-want-here-yet__alcino',
+					apiKey: '<?=$apiKey?>',
+					client: 'mg',
+					product: {
+						id: '5532',
+						name: 'blue-business-card'
+					},
+					userData: {
+						email: 'alcino@pitchprint.com',
+						name: 'PitchPrint Tester Testing',
+						firstname: 'PitchPrint Tester',
+						lastname: 'Testing',
+						telephone: '1234512345',
+						address: '12 asdf<br>asdf<br>qwert 35006<br>WC<br>ZA'.split('<br>').join('\n')
+					}
+				});
+			});
+
+	// 		window.addEventListener( 'DOMContentLoaded', _ready_pitchprint );
+		})(document, window, require);
+
+	</script>
+
+<?php endif; ?>
