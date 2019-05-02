@@ -18,8 +18,10 @@
         <?php $i++; ?>
         <td class="<?= /* @noEscape */ $columnClass ?><?= /* @noEscape */ ($i === $lastItemNumber ? ' last' : '') ?>"><?= /* @escapeNotVerified */ $block->getColumnHtml($_item, $columnName) ?>
     	<?php if ($i === 1) : ?>
-            <?php $ppId = $block->fetchPpId(); ?>
-            <span style="display:none" id="_pitchprint-id_<?=$ppId?>" value="<?=$ppId?>"></span>
+            <?php $ppId = $block->fetchPpData(); ?>
+            <?php if ($ppId) : ?>
+                <span style="display:none" id="_pitchprint-data_<?=$ppId?>" value="<?=$ppId?>"></span>
+            <?php endif; ?>
         <?php endif; ?>
         </td>
     <?php endforeach; ?>
