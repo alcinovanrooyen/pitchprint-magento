@@ -22,7 +22,9 @@ $apiKey 	= $block->getApiKey();
 		function pp_w2p_getLocalPId(productId) {
 			if (!localStorage.hasOwnProperty('pp_w2p_projects'))
 				return 0;
-			return JSON.parse(localStorage.pp_w2p_projects)[productId];
+			const _data = JSON.parse(localStorage.pp_w2p_projects)[productId];
+			if (_data) return _data.projectId;
+			return 0;
 		}
 		
 		(function( _doc, window, require ) {
@@ -35,7 +37,7 @@ $apiKey 	= $block->getApiKey();
 				if (typeof PitchPrintClient === 'undefined') return;
 
 				window.ppclient = new PitchPrintClient({
-					uploadUrl: 'not-sure-which-root-you-want-here-yet__alcino',
+					uploadUrl: 'url_pending',
 					userId: '1',
 					langCode: 'en',
 					enableUpload: 0,
@@ -44,7 +46,7 @@ $apiKey 	= $block->getApiKey();
 					mode: localPId ? 'edit': 'new',
 					createButtons: true,
 					projectId: localPId,
-					pluginRoot: 'not-sure-which-root-you-want-here-yet__alcino',
+					pluginRoot: 'path_pending',
 					apiKey: '<?=$apiKey?>',
 					client: 'mg',
 					product: {
@@ -60,7 +62,7 @@ $apiKey 	= $block->getApiKey();
 						address: ''
 					}
 				});
-				require(['PitchPrintAfterSave', 'PitchPrintAfterAddCart']);
+				require(['PitchPrintOnProductLoad', 'PitchPrintAfterSave', 'PitchPrintAfterAddCart']);
 			});
 		})(document, window, require);
 	</script>
